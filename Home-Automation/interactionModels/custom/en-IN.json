@@ -1,0 +1,213 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "my remote",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "turnDeviceOn",
+          "slots": [
+            {
+              "name": "device",
+              "type": "deviceNames"
+            }
+          ],
+          "samples": [
+            "switch {device} on",
+            "{device} on",
+            "turn the {device} on",
+            "switch on {device}",
+            "turn {device} on"
+          ]
+        },
+        {
+          "name": "turnDeviceOff",
+          "slots": [
+            {
+              "name": "device",
+              "type": "deviceNames"
+            }
+          ],
+          "samples": [
+            "turn the {device} off",
+            "switch off the {device}",
+            "{device} off",
+            "switch off {device}",
+            "turn {device} off"
+          ]
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "roomInfo",
+          "slots": [
+            {
+              "name": "room",
+              "type": "roomNo"
+            }
+          ],
+          "samples": [
+            "room number is {room}",
+            "the room number is {room}",
+            "the room number {room}",
+            "room {room}",
+            "room number {room}"
+          ]
+        },
+        {
+          "name": "contactDetails",
+          "slots": [
+            {
+              "name": "number",
+              "type": "AMAZON.PhoneNumber"
+            }
+          ],
+          "samples": [
+            "{number}",
+            "my mobile number is {number}",
+            "number is {number}",
+            "my number is {number}"
+          ]
+        },
+        {
+          "name": "emailVerification",
+          "slots": [],
+          "samples": [
+            "i have verified my email",
+            "email verification is complete",
+            "email verification",
+            "email verification completed",
+            "my email is verified",
+            "email verified",
+            "i have verified my email id"
+          ]
+        },
+        {
+          "name": "numberDevice",
+          "slots": [
+            {
+              "name": "ordinal",
+              "type": "AMAZON.Ordinal"
+            }
+          ],
+          "samples": [
+            "{ordinal} one",
+            "the {ordinal} one",
+            "the {ordinal}",
+            "{ordinal}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "fridge"
+              }
+            },
+            {
+              "name": {
+                "value": "geyser"
+              }
+            },
+            {
+              "name": {
+                "value": "air conditioner"
+              }
+            },
+            {
+              "name": {
+                "value": "television"
+              }
+            },
+            {
+              "name": {
+                "value": "fan"
+              }
+            },
+            {
+              "name": {
+                "value": "light"
+              }
+            }
+          ],
+          "name": "deviceNames"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "ten"
+              }
+            },
+            {
+              "name": {
+                "value": "nine"
+              }
+            },
+            {
+              "name": {
+                "value": "eight"
+              }
+            },
+            {
+              "name": {
+                "value": "seven"
+              }
+            },
+            {
+              "name": {
+                "value": "six"
+              }
+            },
+            {
+              "name": {
+                "value": "five"
+              }
+            },
+            {
+              "name": {
+                "value": "four"
+              }
+            },
+            {
+              "name": {
+                "value": "three"
+              }
+            },
+            {
+              "name": {
+                "value": "two"
+              }
+            },
+            {
+              "name": {
+                "value": "one"
+              }
+            }
+          ],
+          "name": "roomNo"
+        }
+      ]
+    }
+  },
+  "version": "16"
+}
