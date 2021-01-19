@@ -45,7 +45,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         speak_output = "Welcome to your Smart Home "
         userId = handler_input.request_envelope.session.user.user_id
         deviceId = handler_input.request_envelope.context.system.device.device_id
-        r = requests.post("https://mysmremote.in/alexa.php",data={"userid":userId,"deviceid":deviceId})
+        r = requests.post("YOUR_API_LINK_HERE",data={"userid":userId,"deviceid":deviceId})
         response = r.json()
         # speak_output=response["res"]
         if(response["res"] == "verified"):
@@ -88,7 +88,7 @@ class contactDetailsIntentHandler(AbstractRequestHandler):
             mobileNum = mobile["number"].value
             userId = handler_input.request_envelope.session.user.user_id
             deviceId = handler_input.request_envelope.context.system.device.device_id
-            r = requests.post("https://mysmremote.in/alexa.php", data={'mobileNumber': mobileNum,"userId":userId,"deviceId":deviceId})
+            r = requests.post("YOUR_API_LINK_HERE", data={'mobileNumber': mobileNum,"userId":userId,"deviceId":deviceId})
             if(r.text == "Unauthorised"):
                 speak_output="You are not registered with s m enterprise. go to my s m remote dot in and sign up"
             else:
@@ -115,7 +115,7 @@ class emailVerificationIntentHandler(AbstractRequestHandler):
         if(verifiedemail==False):
             userId = handler_input.request_envelope.session.user.user_id
             deviceId = handler_input.request_envelope.context.system.device.device_id
-            r = requests.post("https://mysmremote.in/alexa.php", data={"userid":userId,"deviceid":deviceId})
+            r = requests.post("YOUR_API_LINK_HERE", data={"userid":userId,"deviceid":deviceId})
             response = r.json()
             #speak_output=response["res"]
             if(response["res"]=="verified"):
@@ -153,7 +153,7 @@ class roomInfoIntentHandler(AbstractRequestHandler):
             if("device" in my_remote.keys()):
                 orderT = my_remote["order"]
                 deviceT = my_remote["device"]
-                r = requests.post("https://mysmremote.in/alexa.php", data={'username': 'shantanu', 'order': orderT, 'device':deviceT,'roomno':room})
+                r = requests.post("YOUR_API_LINK_HERE", data={'username': 'shantanu', 'order': orderT, 'device':deviceT,'roomno':room})
                 speak_output=r.text
                 del my_remote["order"]
                 del my_remote["device"]
@@ -201,7 +201,7 @@ class turnDeviceOnIntentHandler(AbstractRequestHandler):
                 if(deviceName in home["equip"]):
                     deviceCount = home["equip"].count(deviceName)
                     if(deviceCount==1):
-                        r = requests.post("https://mysmremote.in/alexa.php", data={'username': username, 'order': 'on', 'device':deviceName,'roomno':room_number})
+                        r = requests.post("YOUR_API_LINK_HERE", data={'username': username, 'order': 'on', 'device':deviceName,'roomno':room_number})
                         speak_output=r.text
                         # del my_remote["room_number"]
                         del my_remote["device"]
@@ -258,7 +258,7 @@ class numberDeviceIntentHandler(AbstractRequestHandler):
                 username = home["username"]
                 order = my_remote["order"]
                 room_number = my_remote["room_number"]
-                r = requests.post("https://mysmremote.in/alexa.php", data={'username': username, 'order': order, 'device':deviceName,'roomno':room_number})
+                r = requests.post("YOUR_API_LINK_HERE", data={'username': username, 'order': order, 'device':deviceName,'roomno':room_number})
                 speak_output=r.text
                 del my_remote["room_number"]
                 del my_remote["device"]
@@ -306,7 +306,7 @@ class turnDeviceOffIntentHandler(AbstractRequestHandler):
                 if(deviceName in home["equip"]):
                     deviceCount = home["equip"].count(deviceName)
                     if(deviceCount==1):
-                        r = requests.post("https://mysmremote.in/alexa.php", data={'username': username, 'order': 'off', 'device':deviceName,'roomno':room_number})
+                        r = requests.post("YOUR_API_LINK_HERE", data={'username': username, 'order': 'off', 'device':deviceName,'roomno':room_number})
                         speak_output=r.text
                         del my_remote["room_number"]
                         del my_remote["device"]
