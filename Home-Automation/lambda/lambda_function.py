@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK for Python.
-# Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
-# session persistence, api calls, and more.
-# This sample is built using the handler classes approach in skill builder.
 import logging
 import ask_sdk_core.utils as ask_utils
 import requests
@@ -59,14 +53,6 @@ class LaunchRequestHandler(AbstractRequestHandler):
             home.update({"buttonno":response["buttonno"]})
             home.update({"equip":response["equip"]})
             home.update({"username":response["username"]})
-            # for x in response["room"]:
-            #     speak_output=speak_output+str(x)
-            # for x in response["status"]:
-            #     speak_output=speak_output+str(x)
-            # for x in response["buttonno"]:
-            #     speak_output=speak_output+str(x)
-            # for x in response["equip"]:
-            #     speak_output=speak_output+str(x)
         else:
             speak_output=speak_output+response["res"]
             #"Register yourself to access this feature. To register say my number is and then speak your ten digit mobile number"
@@ -238,16 +224,6 @@ class numberDeviceIntentHandler(AbstractRequestHandler):
                 names = handler_input.request_envelope.request.intent.slots
                 devicenum = names["ordinal"].value
                 devicetype = my_remote["device"] 
-                # if(devicetype == "light"):
-                #     devicetype="L"
-                # elif(deviceName=="fan"):
-                #     deviceName="F"
-                # elif(deviceName=="television"):
-                #     deviceName="T"
-                # elif(deviceName=="geyser"):
-                #     deviceName="G"
-                # elif(deviceName=="air conditioner"):
-                #     deviceName="A"
                 speak_output=""
                 device = [x for x,i in enumerate(home["equip"]) if(i==devicetype)]
                 #for i in device:
@@ -416,10 +392,6 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
                 .response
         )
 
-# The SkillBuilder object acts as the entry point for your skill, routing all request and response
-# payloads to the handlers above. Make sure any new handlers or interceptors you've
-# defined are included below. The order matters - they're processed top to bottom.
-
 
 sb = SkillBuilder()
 
@@ -433,7 +405,7 @@ sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(roomInfoIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
-sb.add_request_handler(IntentReflectorHandler()) # make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
+sb.add_request_handler(IntentReflectorHandler()) 
 
 sb.add_exception_handler(CatchAllExceptionHandler())
 
